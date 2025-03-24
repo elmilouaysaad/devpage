@@ -765,14 +765,16 @@ footer {
     transform: translate(-50%, -50%);
     padding: 12px 48px;
     color: #fff;
-    background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+    background: linear-gradient(to right, #bfbfbf 0, #fff 10%, #a6a6a6 20%);
     background-position: 0;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s infinite linear;
     animation-fill-mode: forwards;
-    white-space: nowrap;
+    width: 100%;
+    max-width: 90%;
+    /* white-space: nowrap; */
   }
   @-moz-keyframes shine {
     0% {
