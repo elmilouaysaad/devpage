@@ -1,0 +1,209 @@
+:root {
+}
+
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.polygon-3-3 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.polygon-1-4 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-1-5 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.group-1-2 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.polygon-2-7 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-2-8 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.polygon-4-9 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.group-2-6 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.polygon-5-10 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(245, 179, 53, 1);
+  border: none;
+  outline: none;
+}
+
+.polygon-6-11 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(245, 179, 53, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-4-13 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-5-14 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.group-3-12 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.rectangle-4-16 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-5-17 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.group-6-15 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.rectangle-4-19 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-5-20 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.group-4-18 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.rectangle-4-22 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(26, 86, 50, 1);
+  border: none;
+  outline: none;
+}
+
+.rectangle-5-23 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(26, 86, 50, 1);
+}
+
+.group-5-21 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.macbook-air-1-1 {
+@media (max-width: 1440px) {
+  .macbook-air-1-1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .macbook-air-1-1 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(255, 255, 255, 1);
+}

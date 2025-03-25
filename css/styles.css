@@ -1766,6 +1766,7 @@ footer {
     gap: 2rem;
     position: relative;
     z-index: 2;
+    justify-items: center;
 }
 
 .feature-card {
@@ -1778,7 +1779,6 @@ footer {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     z-index: 10;
 }
 
@@ -1943,4 +1943,20 @@ footer {
     width: auto;
     align-content: center;
     display: flex;
+}
+
+/* Add these styles to center the Career Development card */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    justify-items: center;
+}
+
+.feature-card:nth-child(4) { /* Assuming Career Development is the 4th card */
+    max-width: 400px; /* Set a max-width for better appearance */
+    margin: 0 auto; /* Centers the card */
+    grid-column: 2; /* Makes the card span all columns */
 }
