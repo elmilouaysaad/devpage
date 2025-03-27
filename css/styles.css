@@ -125,7 +125,11 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     font-family: 'Gotham', sans-serif;
 }
-
+@media (min-width: 1345px) {
+.logo {
+    margin-left:-6.5dvw;
+}
+}
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
@@ -255,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 100px solid var(--white);
 }
 
-/* Diagonal Line Background for About Section */
+/* Intro Section Triangles */
 .intro {
     position: relative;
     padding: 5rem 0;
@@ -263,19 +267,59 @@ h1, h2, h3, h4, h5, h6 {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
 }
 
+/* Add floating triangles container */
 .intro::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-    z-index: -1;
+    top: -100px;
+    left: -50px;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 350px solid var(--graduate-color);
+    transform: rotate(-30deg);
+    opacity: 0.05;
+    animation: float 20s infinite ease-in-out;
 }
 
-/* Ensure the text and content are above the background */
+.intro::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -50px;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 300px solid var(--primary-color);
+    transform: rotate(15deg);
+    opacity: 0.05;
+    animation: float 25s infinite ease-in-out reverse;
+}
+
+/* Add additional floating triangles */
+.intro .floating-bg-triangle {
+    position: absolute;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.intro .floating-bg-triangle.primary {
+    top: 20%;
+    left: 5%;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 160px solid var(--sse-color);
+    animation: float 18s infinite ease-in-out;
+}
+
+.intro .floating-bg-triangle.graduate {
+    top: 60%;
+    right: 8%;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 180px solid var(--sba-color);
+    animation: float 22s infinite ease-in-out reverse;
+}
+
+/* Ensure content stays above triangles */
 .intro-content {
     position: relative;
     z-index: 2;
@@ -409,6 +453,8 @@ h1, h2, h3, h4, h5, h6 {
 .schools {
     padding: 5rem 0;
     background: var(--light-bg);
+    position: relative;
+    overflow: hidden;
 }
 
 .schools h2 {
@@ -603,6 +649,8 @@ h1, h2, h3, h4, h5, h6 {
 .signup {
     padding: 5rem 0;
     background: var(--white);
+    position: relative;
+    overflow: hidden;
 }
 
 .signup h2 {
@@ -972,16 +1020,34 @@ footer {
         transform: translate(0, 0) rotate(0deg);
     }
     25% {
-        transform: translate(30px, 20px) rotate(90deg);
+        transform: translate(10px, -15px) rotate(5deg);
     }
     50% {
-        transform: translate(0, 40px) rotate(180deg);
+        transform: translate(0, -25px) rotate(0deg);
     }
     75% {
-        transform: translate(-30px, 20px) rotate(270deg);
+        transform: translate(-10px, -15px) rotate(-5deg);
     }
     100% {
-        transform: translate(0, 0) rotate(360deg);
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes floatReverse {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-15px, -10px) rotate(-5deg);
+    }
+    50% {
+        transform: translate(0, -20px) rotate(0deg);
+    }
+    75% {
+        transform: translate(15px, -10px) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
     }
 }
 
@@ -1780,6 +1846,8 @@ footer {
     display: flex;
     flex-direction: column;
     z-index: 10;
+    width: 100%; /* Add this to ensure consistent width */
+    max-width: 400px; /* Add this to maintain reasonable size */
 }
 
 .feature-card::before {
@@ -1833,6 +1901,7 @@ footer {
 
 .feature-content {
     flex: 1;
+    width: 100%; /* Ensure content takes full width */
 }
 
 .feature-content h3 {
@@ -1873,26 +1942,30 @@ footer {
     font-weight: bold;
 }
 
+/* Update mobile styles */
 @media (max-width: 768px) {
-    .why-choose-us {
-        padding: 3rem 0;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1.1rem;
-    }
-
     .features-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Force single column on mobile */
         gap: 1.5rem;
+        padding: 0 1rem; /* Add padding for better spacing */
     }
 
     .feature-card {
+        width: 100%;
+        max-width: 100%; /* Allow cards to take full width on mobile */
         padding: 1.5rem;
+        margin: 0; /* Remove any margin */
+    }
+
+    /* Remove the specific grid-column property that was causing the issue */
+    .feature-card:nth-child(4) {
+        grid-column: auto; /* Reset the grid-column property */
+        max-width: 100%; /* Allow the card to take full width */
+        margin: 0; /* Remove margin */
+    }
+
+    .feature-content {
+        width: 100%; /* Ensure content takes full width */
     }
 
     .feature-icon {
@@ -1900,12 +1973,19 @@ footer {
         height: 50px;
     }
 
-    .feature-icon i {
-        font-size: 1.5rem;
-    }
-
     .feature-content h3 {
         font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-content p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-list li {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
     }
 }
 
@@ -1954,9 +2034,488 @@ footer {
     z-index: 2;
     justify-items: center;
 }
-
+@media (min-width: 944px) {
 .feature-card:nth-child(4) { /* Assuming Career Development is the 4th card */
-    max-width: 400px; /* Set a max-width for better appearance */
-    margin: 0 auto; /* Centers the card */
+    /* max-width: 400px; Set a max-width for better appearance */
+    /* margin: 0 auto; Centers the card */
     grid-column: 2; /* Makes the card span all columns */
+    /* justify-content: center; */
+}
+
+
+  
+
+.admission-conditions {
+    padding: 2rem 2rem;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.admission-conditions .container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.admission-conditions h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #F5B335;
+    font-size: 2.3rem;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.admission-conditions h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: #F5B335;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.admission-conditions h2:hover::after {
+    width: 100%;
+}
+
+.conditions-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+}
+
+.condition-item {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.condition-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.condition-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #F5B335;
+    transition: height 0.3s ease;
+}
+
+.condition-item:hover .condition-content {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(245, 179, 53, 0.15);
+}
+
+.condition-item:hover .condition-content::before {
+    height: 100%;
+}
+
+.condition-item p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.condition-item:hover p {
+    transform: translateX(10px);
+}
+
+.condition-item small {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #F5B335, transparent);
+    margin: 2rem 0;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.condition-item:hover .separator {
+    opacity: 0.6;
+}
+
+.condition-item:last-child .separator {
+    display: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .admission-conditions {
+        padding: 3rem 1rem;
+    }
+
+    .admission-conditions h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .condition-content {
+        flex-direction: column;
+        /* gap: 1rem; */
+        padding: 1.2rem;
+    }
+
+    .condition-icon {
+        margin-bottom: 0.5rem;
+    }
+
+    .condition-item p {
+        font-size: 1rem;
+    }
+    
+    .conditions-list {
+        padding: 0 0.5rem;
+    }
+
+    .separator {
+        margin: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .admission-conditions h2 {
+        font-size: 1.8rem;
+    }
+
+    .condition-content {
+        padding: 1.25rem;
+    }
+
+    .condition-item p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Add styles for the icon */
+.condition-icon {
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.condition-icon svg {
+    transition: transform 0.3s ease;
+}
+
+/* Update hover effects */
+.condition-item:hover .condition-icon {
+    transform: scale(1.1);
+}
+
+.condition-item:hover .condition-icon svg {
+    transform: rotate(5deg);
+}
+
+/* Apply Now Button Styles */
+.apply-now-button {
+    position: fixed;
+    right: -200px; /* Start off-screen */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    animation: slideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: 1s;
+}
+
+.apply-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #F5B335 0%, #ff8f00 100%);
+    border-radius: 12px 0 0 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 179, 53, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.apply-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.apply-button:hover::before {
+    left: 100%;
+}
+
+.apply-button:hover {
+    transform: translateX(-10px);
+    box-shadow: 0 6px 20px rgba(245, 179, 53, 0.4);
+}
+
+.apply-text {
+    position: relative;
+    z-index: 1;
+}
+
+.apply-arrow {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.apply-button:hover .apply-arrow {
+    transform: translateX(5px);
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    0% {
+        right: -200px;
+        opacity: 0;
+    }
+    60% {
+        right: 20px;
+        opacity: 1;
+    }
+    80% {
+        right: -10px;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .apply-now-button {
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .apply-button {
+        border-radius: 12px;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* Optional: Add a pulse animation to draw attention */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add this class to trigger the pulse animation occasionally */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Add this JavaScript to trigger the pulse animation every 30 seconds */
+
+/* Decorative Triangles */
+.triangle-decoration {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Schools Section Triangles */
+.schools::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -50px;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 350px solid var(--sse-color);
+    transform: rotate(-30deg);
+    opacity: 0.05;
+}
+
+.schools::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -50px;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 300px solid var(--sba-color);
+    transform: rotate(15deg);
+    opacity: 0.05;
+}
+
+/* Why Choose Us Triangles */
+.why-choose-us::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 250px solid var(--graduate-color);
+    transform: rotate(-45deg);
+    opacity: 0.05;
+}
+
+.why-choose-us::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: 10%;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 200px solid var(--primary-color);
+    transform: rotate(15deg);
+    opacity: 0.05;
+}
+
+/* General Conditions Triangles */
+.admission-conditions::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 15%;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid var(--ssah-color);
+    transform: rotate(15deg);
+    opacity: 0.05;
+}
+
+.admission-conditions::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -50px;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 250px solid var(--graduate-color);
+    transform: rotate(-30deg);
+    opacity: 0.05;
+}
+
+/* Apply Now Section Triangles */
+.signup::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: 10%;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 200px solid var(--primary-color);
+    transform: rotate(-15deg);
+    opacity: 0.05;
+    animation: float 15s infinite ease-in-out;
+}
+
+.signup::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: 5%;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 250px solid var(--graduate-color);
+    transform: rotate(20deg);
+    opacity: 0.05;
+    animation: float 20s infinite ease-in-out reverse;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+    0%, 100% {
+        transform: rotate(-15deg) translate(0, 0);
+    }
+    50% {
+        transform: rotate(-5deg) translate(20px, -20px);
+    }
+}
+
+/* Additional floating triangles */
+.floating-bg-triangle {
+    position: absolute;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.floating-bg-triangle.primary {
+    top: 20%;
+    left: 5%;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 160px solid var(--primary-color);
+    animation: float 18s infinite ease-in-out;
+}
+
+.floating-bg-triangle.graduate {
+    top: 60%;
+    right: 8%;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 180px solid var(--graduate-color);
+    animation: float 25s infinite ease-in-out reverse;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .triangle-decoration,
+    .floating-bg-triangle {
+        transform: scale(0.7);
+    }
 }
