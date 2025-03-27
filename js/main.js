@@ -393,4 +393,132 @@ document.querySelectorAll('.school-card').forEach(card => {
         content.style.transform = 'translateY(0)';
         effect.style.transform = 'translateY(100%)';
     });
+});
+
+// Replace the existing accreditation carousel code
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.accreditation-track');
+    const items = document.querySelectorAll('.accreditation-item');
+    const prevBtn = document.querySelector('.accreditation-nav.prev');
+    const nextBtn = document.querySelector('.accreditation-nav.next');
+    
+    if (!track || !items.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+    let autoPlayInterval;
+
+    function updateCarousel(direction = null) {
+        // Calculate the maximum valid index (ensuring we show 2 items)
+        const maxIndex = Math.max(0, totalItems - 2);
+        
+        // Ensure currentIndex stays within bounds
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = maxIndex;
+        }
+
+        const translateX = -currentIndex * 50; // Move by 50% (2 items at a time)
+        
+        if (direction !== 'wrap') {
+            track.style.transition = 'transform 0.5s ease';
+        } else {
+            track.style.transition = 'none';
+        }
+        
+        track.style.transform = `translateX(${translateX}%)`;
+        
+        // Update visibility of navigation buttons on mobile only
+        if (window.innerWidth <= 768) {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        }
+    }
+
+    function moveCarousel(direction) {
+        if (direction === 'next') {
+            currentIndex += 2;
+            if (currentIndex >= totalItems) {
+                currentIndex = 0;
+            }
+        } else {
+            currentIndex -= 2;
+            if (currentIndex < 0) {
+                currentIndex = Math.max(0, totalItems - 2);
+            }
+        }
+        updateCarousel();
+    }
+
+    // Auto-play functionality
+    function startAutoPlay() {
+        stopAutoPlay(); // Clear any existing interval
+        autoPlayInterval = setInterval(() => {
+            moveCarousel('next');
+        }, 3000); // Change slides every 3 seconds
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+
+    // Event listeners for buttons
+    prevBtn.addEventListener('click', () => {
+        moveCarousel('prev');
+        stopAutoPlay();
+        startAutoPlay(); // Restart auto-play after manual interaction
+    });
+
+    nextBtn.addEventListener('click', () => {
+        moveCarousel('next');
+        stopAutoPlay();
+        startAutoPlay(); // Restart auto-play after manual interaction
+    });
+
+    // Touch support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+    });
+
+    track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        
+        if (touchStartX - touchEndX > 50) {
+            moveCarousel('next');
+        } else if (touchEndX - touchStartX > 50) {
+            moveCarousel('prev');
+        }
+        
+        startAutoPlay(); // Restart auto-play after touch interaction
+    });
+
+    // Pause auto-play on hover
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
+
+    // Show/hide navigation buttons based on screen size
+    function updateNavButtons() {
+        if (window.innerWidth > 768) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            track.style.transform = 'translateX(0)';
+            currentIndex = 0;
+        } else {
+            updateCarousel();
+        }
+    }
+
+    // Listen for window resize
+    window.addEventListener('resize', updateNavButtons);
+    
+    // Initial setup
+    updateCarousel();
+    startAutoPlay();
 }); 
