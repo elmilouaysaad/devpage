@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission Steps</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fff;
+      margin: 20px;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .step {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .step:before {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 30px solid #f4c045; /* arrow color */
+      z-index: 1;
+    }
+
+    /* Remove arrow from last step */
+    .step:last-child:before {
+      display: none;
+    }
+
+    .green {
+      background: linear-gradient(to right, #1a4e2e 50%, white 50%);
+      color: #1a4e2e;
+      border: 4px solid #1a4e2e;
+    }
+
+    .orange {
+      background: linear-gradient(to right, #f4c045 50%, white 50%);
+      color: #f4c045;
+      border: 4px solid #f4c045;
+    }
+
+    .step-number {
+      font-size: 32px;
+      font-weight: bold;
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .steps-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .step:before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="steps-container">
+    <div class="step green">
+      Complete the online registration form<br> at www.aui.ma
+      <div class="step-number">1</div>
+    </div>
+    <div class="step orange">
+      Pass the GAT or SAT test<br> and the interview
+      <div class="step-number">2</div>
+    </div>
+    <div class="step green">
+      Receiving the<br> admission letter
+      <div class="step-number">3</div>
+    </div>
+    <div class="step orange">
+      Pay the registration fees<br> and reserve your spot
+      <div class="step-number">4</div>
+    </div>
+    <div class="step green">
+      Submission of administrative documents<br> (Bac results) and English tests
+      <div class="step-number">5</div>
+    </div>
+    <div class="step orange">
+      Tuition Fee Regulations
+      <div class="step-number">6</div>
+    </div>
+    <div class="step green">
+      Integration<br> (new session)
+      <div class="step-number">7</div>
+    </div>
+  </div>
+  <div class="container--0-">
+    <svg
+      width="200"
+      height="200"
+      viewBox="0 0 200 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="100"
+        cy="100"
+        r="97.5"
+        stroke="#1A5632"
+        stroke-width="5"
+      ></circle></svg
+    ><svg
+      width="61"
+      height="155"
+      viewBox="0 0 61 155"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <mask id="path-1-inside-1_16_3" fill="white">
+        <path
+          d="M24.7504 0.955259C36.06 10.3134 45.1707 22.0466 51.4355 35.3219C57.7003 48.5972 60.9657 63.0889 60.9997 77.7682C61.0338 92.4474 57.8356 106.954 51.6324 120.258C45.4292 133.563 36.373 145.338 25.1069 154.748L0.952759 125.831C7.97403 119.966 13.618 112.628 17.484 104.336C21.35 96.0448 23.3431 87.0039 23.3219 77.8555C23.3007 68.7071 21.2656 59.6755 17.3613 51.4021C13.4569 43.1287 7.77893 35.8163 0.730545 29.9841L24.7504 0.955259Z"
+        ></path>
+      </mask>
+      <path
+        d="M24.7504 0.955259C36.06 10.3134 45.1707 22.0466 51.4355 35.3219C57.7003 48.5972 60.9657 63.0889 60.9997 77.7682C61.0338 92.4474 57.8356 106.954 51.6324 120.258C45.4292 133.563 36.373 145.338 25.1069 154.748L0.952759 125.831C7.97403 119.966 13.618 112.628 17.484 104.336C21.35 96.0448 23.3431 87.0039 23.3219 77.8555C23.3007 68.7071 21.2656 59.6755 17.3613 51.4021C13.4569 43.1287 7.77893 35.8163 0.730545 29.9841L24.7504 0.955259Z"
+        fill="#1A5632"
+        stroke="#1A5632"
+        stroke-width="10"
+        mask="url(#path-1-inside-1_16_3)"
+      ></path></svg
+    ><svg
+      width="32"
+      height="146"
+      viewBox="0 0 32 146"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="32" height="146" fill="white"></rect></svg
+    ><svg
+      width="7"
+      height="32"
+      viewBox="0 0 7 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="7" height="32" fill="#1A5632"></rect></svg
+    ><svg
+      width="19"
+      height="44"
+      viewBox="0 0 19 44"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M19 22L0.25 43.6506L0.25 0.349365L19 22Z" fill="#1A5632"></path>
+    </svg>
+    <div class="text-0-1-5">
+      Complete the online registration form at www.aui.ma
+    </div>
+    <div class="text-0-1-6">1</div>
+  </div>
+</body>
+</html>

@@ -500,8 +500,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Pause auto-play on hover
-    track.addEventListener('mouseenter', stopAutoPlay);
-    track.addEventListener('mouseleave', startAutoPlay);
+    // track.addEventListener('mouseenter', stopAutoPlay);
+    // track.addEventListener('mouseleave', startAutoPlay);
 
     // Show/hide navigation buttons based on screen size
     function updateNavButtons() {
@@ -519,6 +519,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', updateNavButtons);
     
     // Initial setup
-    updateCarousel();
-    startAutoPlay();
+    // updateCarousel();
+    // startAutoPlay();
 }); 

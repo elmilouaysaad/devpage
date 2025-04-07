@@ -457,7 +457,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Schools Section */
 .schools {
     padding: 5rem 0;
-    background: var(--light-bg);
+    /* background: var(--light-bg); */
+    background: linear-gradient(to bottom right, var(--white) 50%, var(--primary-color) 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1779,7 +1781,10 @@ footer {
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+    /* background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%); */
+    
+    background: linear-gradient(to bottom left, var(--white) 50%, var(--sba-color) 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
     position: relative;
     overflow: hidden;
 }
@@ -2045,9 +2050,12 @@ footer {
 
 .admission-conditions {
     padding: 2rem 2rem;
-    background-color: #fff;
+    background: linear-gradient(to bottom right, var(--white) 50%, var(--sse-color) 50%);
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+    background-position: right;
 }
 
 .admission-conditions .container {
@@ -2700,3 +2708,30 @@ html, body {
         display: flex;
     }
 }
+.signup{
+    background: linear-gradient(to top left, var(--white) 50%, var(--ssah-color) 50%);
+    background-size: 40% 70%;
+background-repeat: no-repeat;
+    /* clip-path: polygon(0 90%, 100% 0, 100% 100%, 0 0%); */
+    /* color:white; */
+}
+
+.integration-steps {
+    padding: 3rem 0;
+    background: #fff;
+    text-align: center;
+}
+
+.integration-steps h2 {
+    color: #1A5632;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.integration-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
