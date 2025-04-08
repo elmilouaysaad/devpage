@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slider Example</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css"
+  />
+  <style>
+    .slider__wave svg {
+      display: block;
+      width: 100%;
+    }
+    .section.is--slider {
+      background-color: #fff;
+      padding-bottom: 2rem;
+    }
+    .container.is--slider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .splide__img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<section class="section is--slider">
+  <!-- <div class="slider__wave">
+    <svg version="1.1" viewBox="0 0 804 50.167" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#E9C6DD" d="M804,0v16.671c0,0-204.974,33.496-401.995,33.496C204.974,50.167,0,16.671,0,16.671V0H804z" />
+    </svg>
+  </div> -->
+
+  <div class="container is--slider">
+    <div id="splide01" class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img class="splide__img" src="https://dl.dropboxusercontent.com/scl/fi/s7v18bjicbsx9befhc17o/SSE-Booklet-2-01.png?rlkey=1ujsi39ys6x6rkduab9ddbf44&st=d0qzfac4&dl=0" alt="Slide 1" />
+          </li>
+          <li class="splide__slide">
+            <img class="splide__img" src="https://dl.dropboxusercontent.com/scl/fi/0yqf8mq57bkqme4e728s0/SBA-Booklet-2-05.png?rlkey=p0p4cwthptuxymohs3dqekooj&st=34s94r4r&dl=0" alt="Slide 2" />
+          </li>
+          <li class="splide__slide">
+            <img class="splide__img" src="https://dl.dropboxusercontent.com/scl/fi/k1skopsodk9a4cnsv4e8k/SSAH-Booklet-2-01.png?rlkey=s9h9qe0d22pgz9xa9iafzv6or&st=kytinhyp&dl=0" alt="Slide 3" />
+          </li>
+          <!-- Add more slides as needed -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+<script src="slider.js"></script>
+</body>
+</html>
