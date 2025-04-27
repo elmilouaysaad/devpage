@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUI Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</head>
+<body >
+
+
+    
+<!-- Modern Stylish Carousel -->
+<section class="relative bg-white w-full overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="swiper myModernSwiper">
+        <div class="swiper-wrapper">
+  
+          <!-- Slide 1 -->
+          <div class="swiper-slide flex justify-center">
+            <div class="backdrop-blur-lg bg-white/20 rounded-3xl shadow-xl w-[80%] py-8 mx-8 hover:scale-105 transition-all duration-500">
+              <img src="https://aui.ma/hs-fs/hubfs/New%20website%20photos/long%20photos/sliderone.jpg" alt="Students" class="rounded-2xl w-full h-48  object-cover mb-6">
+              <h3 class="text-2xl  font-bold mb-2 text-center">Students</h3>
+              <p class="text-sm  text-center">Living on campus with modern housing and scenic views promotes academic success and community engagement.</p>
+            </div>
+          </div>
+  
+          <!-- Slide 2 -->
+          <div class="swiper-slide flex justify-center">
+            <div class="backdrop-blur-lg bg-white/20 rounded-3xl shadow-xl w-[80%]  py-8 mx-8 hover:scale-105 transition-all duration-500">
+              <img src="https://aui.ma/hs-fs/hubfs/New%20website%20photos/long%20photos/slidertwo.jpg" alt="Faculty and Staff" class="rounded-2xl w-full h-48 object-cover mb-6">
+              <h3 class="text-2xl  font-bold mb-2 text-center">Faculty and Staff</h3>
+              <p class="text-sm  text-center">Flexible residences on and off campus with support from university services ensure a comfortable living experience.</p>
+            </div>
+          </div>
+  
+          <!-- Slide 3 -->
+          <div class="swiper-slide flex justify-center">
+            <div class="backdrop-blur-lg bg-white/20 rounded-3xl shadow-xl w-[80%]  py-8 mx-8 hover:scale-105 transition-all duration-500">
+              <img src="https://aui.ma/hs-fs/hubfs/New%20website%20photos/long%20photos/sliderthree.jpg" alt="Parents and Family" class="rounded-2xl w-full h-48 object-cover mb-6">
+              <h3 class="text-2xl font-bold mb-2 text-center">Parents and Family</h3>
+              <p class="text-sm  text-center">Family visits with prior arrangements, providing guest accommodations to stay connected with the AUI experience.</p>
+            </div>
+          </div>
+  
+        </div>
+  
+        <!-- Navigation -->
+        <div class="swiper-button-next text-[#0A5640]"></div>
+        <div class="swiper-button-prev text-[#0A5640]"></div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Swiper Init -->
+
+  <script>
+    var swiper = new Swiper('.myModernSwiper', {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    </script>
+    
+
+</body>
+</html>
