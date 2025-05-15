@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University Enrollment Popup</title>
+  <style>
+    :root {
+      --primary-color: #0A5640;
+      --secondary-color: #0A5640;
+      --sse-color: #61366E;
+      --sba-color: #79242F;
+      --ssah-color: #201747;
+      --graduate-color: #F5B335;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    button.enroll-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.enroll-btn:hover {
+      background-color: #084b36;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 86, 64, 0.3);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup-form {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .popup-form h2 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
+
+    .popup-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
+    .popup-form input,
+    .popup-form select,
+    .popup-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .popup-form button.submit-btn {
+      margin-top: 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .popup-form button.submit-btn:hover {
+      background-color: #084b36;
+    }
+
+    .popup-form .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="enroll-btn" onclick="openForm()">Enroll Now</button>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup-form">
+      <button class="close-btn" onclick="closeForm()">×</button>
+      <h2>University Enrollment</h2>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+
+        <label for="school">Select School</label>
+        <select id="school" required>
+          <option value="">Choose one</option>
+          <option value="sse" style="color: var(--sse-color);">School of Science and Engineering</option>
+          <option value="sba" style="color: var(--sba-color);">School of Business Administration</option>
+          <option value="ssah" style="color: var(--ssah-color);">School of Social Sciences and Humanities</option>
+          <option value="graduate" style="color: var(--graduate-color);">Graduate Programs</option>
+        </select>
+
+        <label for="message">Message (Optional)</label>
+        <textarea id="message" rows="3" placeholder="Any questions or details..."></textarea>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closeForm() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // Optional: Close form on ESC key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeForm();
+      }
+    });
+  </script>
+</body>
+</html>

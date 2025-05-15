@@ -522,3 +522,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // updateCarousel();
     // startAutoPlay();
 }); 
+// Enrollment Form Popup Logic
+function openForm() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+  
+  function closeForm() {
+    document.getElementById('popup').style.display = 'none';
+  }
+  
+  // Close form on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeForm();
+    }
+  });
+  
