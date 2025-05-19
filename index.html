@@ -566,8 +566,11 @@ fill="#1A5632"
     <div class="popup-overlay" id="popup">
         <div class="popup-form">
           <button class="close-btn" onclick="closeForm()">×</button>
+          <div style="display: flex;gap: 1rem;align-items: center;">
+          <img src="/logoGreen.png" alt="Logo" class="form-logo" />
           <h2>University Enrollment</h2>
-          <form>
+        </div>
+          <form onsubmit="hideForm(event)">
             <label for="first-name">First Name</label>
             <input type="text" id="first-name" placeholder="John" required>
       
@@ -1095,4 +1098,13 @@ fill="#1A5632"
       
       
 </body>
+<script>
+    function hideForm(event) {
+      event.preventDefault(); // Prevent actual form submission if you're not sending it to a server
+      document.getElementById('popup').style.display = 'none';
+      
+      // Optionally, you can show a success message here
+      // document.getElementById("success-message").style.display = "block";
+    }
+  </script>
 </html> 
