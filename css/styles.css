@@ -2783,8 +2783,8 @@ background-repeat: no-repeat;
     background-position: center;
     border-radius: 12px;
     padding: 3rem 2rem;
-    width: 95%;
-    max-width: 900px; /* ⬆ Increased max width */
+    width: 100%;
+    /* max-width: 900px;  */
     height: auto;
     max-height: 95vh;
     overflow-y: auto;
