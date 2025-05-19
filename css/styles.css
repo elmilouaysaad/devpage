@@ -2759,6 +2759,7 @@ background-repeat: no-repeat;
     z-index: 1000;
     padding: 1rem;
     box-sizing: border-box;
+    pointer-events: auto;
   }
   
   /* .popup-form {
