@@ -2776,7 +2776,7 @@ background-repeat: no-repeat;
     box-sizing: border-box;
   } */
   .popup-form {
-    background-color: rgba(29, 29, 27, 0.625);
+    background-color: rgba(29, 29, 27, 0.4);
     background-image: url('../triangles.png'); /* 🔄 Replace with your actual image path */
     background-size: cover;
     background-position: center;
